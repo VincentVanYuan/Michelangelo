@@ -1,5 +1,7 @@
 package com.vincent.study.controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -13,8 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class TestController {
 
+    private static final Logger logger = LogManager.getLogger(TestController.class);
+
     @RequestMapping("/hello")
     public String hello() {
+        logger.debug("hello");
+        logger.info("hello");
+        logger.warn("hello");
+        logger.error("hello");
         return "index";
     }
 }
