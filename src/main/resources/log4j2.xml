@@ -3,7 +3,7 @@
     <Properties>
         <property name="log_pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</property>
         <property name="log_path">/Users/Vincent/Documents/Tools/Logs</property>
-        <property name="file_size">5M</property>
+        <property name="file_size">100M</property>
     </Properties>
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
