@@ -16,7 +16,7 @@
 
     <context:property-placeholder location="classpath:db.properties"/>
 
-    <context:component-scan base-package="com.vincent.study.service"/>
+    <context:component-scan base-package="com.vincent.study.service,com.vincent.study.dao"/>
 
     <bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
         <property name="driverClassName" value="${jdbc.driver}"/>
@@ -47,6 +47,6 @@
         </tx:attributes>
     </tx:advice>
     <aop:config>
-        <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.vincent.study.service.impl.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.vincent.study.service.*.*(..))"/>
     </aop:config>
 </beans>

@@ -3,5 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="userMapper">
-
+    <insert id="saveUser" parameterType="com.vincent.study.model.User">
+        INSERT INTO User (userId, userName, userAge, userBirth, userAvatar)
+        VALUES (#{userId}, #{userName}, #{userAge}, #{userBirth}, #{userAvatar})
+    </insert>
 </mapper>
