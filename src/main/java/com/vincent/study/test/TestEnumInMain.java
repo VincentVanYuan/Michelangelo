@@ -4,15 +4,15 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * 测试 main
+ * 测试 枚举
  *
  * @author Vincent
  * @version 1.0
  * @since 2016-5-28
  */
-public class TestInMain {
+public class TestEnumInMain {
 
-    private static final Logger logger = LogManager.getLogger(TestInMain.class);
+    private static final Logger logger = LogManager.getLogger(TestEnumInMain.class);
 
     public static void main(String[] args) {
 
