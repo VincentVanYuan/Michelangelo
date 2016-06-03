@@ -1,7 +1,6 @@
 package com.vincent.study.dao;
 
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 
 import javax.annotation.Resource;
 
@@ -14,13 +13,7 @@ import javax.annotation.Resource;
  */
 public class BaseDao {
 
-    @Resource
-    private SqlSessionFactory sqlSessionFactory;
-
-    public SqlSession sqlSession() {
-
-        return this.sqlSessionFactory.openSession();
-
-    }
+    @Resource(name = "sqlSession")
+    protected SqlSession sqlSession;
 
 }

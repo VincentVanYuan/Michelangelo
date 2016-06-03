@@ -15,7 +15,7 @@ public class UserDao extends BaseDao {
 
     public void saveUser(User user) {
 
-        sqlSession().insert("userMapper.saveUser", user);
+        sqlSession.insert("userMapper.saveUser", user);
 
     }
 }
