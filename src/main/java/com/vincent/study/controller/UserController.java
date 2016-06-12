@@ -2,6 +2,7 @@ package com.vincent.study.controller;
 
 import com.vincent.study.model.User;
 import com.vincent.study.service.UserService;
+import com.vincent.study.utils.GenerateId;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Date;
-import java.util.UUID;
 
 /**
  * 用户 Controller
@@ -30,7 +30,7 @@ public class UserController {
     public String saveUser() {
         try {
             User user = new User();
-            user.setUserId(UUID.randomUUID().toString());
+            user.setUserId(GenerateId.GenerateUUID());
             user.setUserName("Vincent");
             user.setUserAge(23);
             user.setUserBirth(new Date());
