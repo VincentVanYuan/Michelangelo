@@ -26,13 +26,24 @@ public class TestBeanInMain {
 
         User user = getUserByBeanFactory();
         //User user = getUserByDefault();
-
+        logger.info("\n**********************************************************************");
         logger.info("\n" + user.getUserId() + "\n" + user.getUserName() + "\n" + user.getUserAvatar() + "\n" + user.getUserAge() + "\n" + user.getUserBirth());
-
+        logger.info("\n----------------------------------------------------------------------");
     }
 
     private static User getUserByBeanFactory() {
+
         BeanFactory beanFactory = new XmlBeanFactory(resource);
+
+        logger.info("\n**********************************************************************");
+        logger.info(beanFactory.containsBean("user"));
+        logger.info(beanFactory.getAliases("user").length);
+        logger.info(beanFactory.isTypeMatch("user", User.class));
+        logger.info(beanFactory.isPrototype("user"));
+        logger.info(beanFactory.isSingleton("user"));
+        logger.info(beanFactory.getType("user"));
+        logger.info("\n----------------------------------------------------------------------");
+
         return beanFactory.getBean("user", User.class);
     }
 
@@ -42,5 +53,5 @@ public class TestBeanInMain {
         reader.loadBeanDefinitions(resource);
         return factory.getBean("user", User.class);
     }
-    
+
 }
