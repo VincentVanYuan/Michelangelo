@@ -30,7 +30,7 @@ public class UserController {
     public String saveUser() {
         try {
             User user = new User();
-            user.setUserId(GenerateId.GenerateUUID());
+            user.setUserId(GenerateId.currentTimeMillis());
             user.setUserName("Vincent");
             user.setUserAge(23);
             user.setUserBirth(new Date());

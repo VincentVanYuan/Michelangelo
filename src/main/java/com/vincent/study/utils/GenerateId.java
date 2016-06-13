@@ -11,8 +11,11 @@ import java.util.UUID;
  */
 public class GenerateId {
 
-    public static String GenerateUUID() {
+    public static String randomUUID() {
         return UUID.randomUUID().toString().replaceAll("-", "").toUpperCase();
     }
 
+    public static String currentTimeMillis() {
+        return String.valueOf(System.currentTimeMillis());
+    }
 }
