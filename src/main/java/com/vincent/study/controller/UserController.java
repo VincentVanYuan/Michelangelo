@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -77,9 +78,12 @@ public class UserController {
         Map<String, Object> map = new HashMap<String, Object>();
         try {
             User user = userService.getUserObjByUserId(userId);
-            map.put("user", user);
-            map.put("isSuccess", 1);
-            return map;
+            if (!ObjectUtils.isEmpty(user)) {
+                map.put("user", user);
+                map.put("isSuccess", 1);
+                logger.info("get success!");
+                return map;
+            }
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
         }
