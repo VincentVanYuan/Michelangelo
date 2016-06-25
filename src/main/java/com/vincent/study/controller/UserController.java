@@ -45,7 +45,7 @@ public class UserController {
     @RequestMapping(value = "saveUser", method = RequestMethod.GET)
     public String saveUser(@RequestParam(value = "userName") String userName,
                            @RequestParam(value = "userAge", required = false) Integer userAge,
-                           @RequestParam(value = "userBirth", required = false) @DateTimeFormat(pattern = "yy-MM-dd") Date userBirth,
+                           @RequestParam(value = "userBirth", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date userBirth,
                            @RequestParam(value = "userAvatar", required = false) String userAvatar,
                            Model model) {
 

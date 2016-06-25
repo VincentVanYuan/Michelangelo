@@ -45,7 +45,7 @@ public class FamilyController {
     public String saveFamily(@RequestParam(value = "familyCall") String familyCall,
                              @RequestParam(value = "familyName") String familyName,
                              @RequestParam(value = "familyAge", required = false) Integer familyAge,
-                             @RequestParam(value = "familyBirth", required = false) @DateTimeFormat(pattern = "yy-MM-dd") Date familyBirth,
+                             @RequestParam(value = "familyBirth", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date familyBirth,
                              @RequestParam(value = "userId") String userId,
                              Model model) {
 
