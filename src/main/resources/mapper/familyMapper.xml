@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="familyMapper">
+    <insert id="saveFamily" parameterType="com.vincent.study.model.Family">
+        INSERT INTO Family (familyCall, familyName, familyAge, familyBirth, familyAddTime, userId)
+        VALUES (#{familyCall}, #{familyName}, #{familyAge}, #{familyBirth}, #{familyAddTime}, #{userId})
+    </insert>
+</mapper>

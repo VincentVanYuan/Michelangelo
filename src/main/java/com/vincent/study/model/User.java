@@ -1,5 +1,6 @@
 package com.vincent.study.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -9,7 +10,7 @@ import java.util.Date;
  * @version 1.0
  * @since 2016-6-1
  */
-public class User {
+public class User implements Serializable {
 
     private String userId;
     private String userName;
