@@ -8,7 +8,9 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
@@ -29,11 +31,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/saveUser")
+    @RequestMapping(value = "saveUser", method = RequestMethod.GET)
     public String saveUser(@RequestParam(value = "userName") String userName,
                            @RequestParam(value = "userAge", required = false) Integer userAge,
                            @RequestParam(value = "userBirth", required = false) @DateTimeFormat(pattern = "yy-MM-dd") Date userBirth,
-                           @RequestParam(value = "userAvatar", required = false) String userAvatar) {
+                           @RequestParam(value = "userAvatar", required = false) String userAvatar,
+                           Model model) {
 
         try {
             User user = new User();
@@ -43,6 +46,7 @@ public class UserController {
             user.setUserBirth(userBirth);
             user.setUserAvatar(userAvatar);
             userService.saveUser(user);
+            model.addAttribute(user);
             logger.info("save success!");
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
