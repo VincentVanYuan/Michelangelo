@@ -17,9 +17,7 @@ import java.util.Map;
 public class UserDao extends BaseDao {
 
     public void saveUser(User user) {
-
         sqlSession.insert("userMapper.saveUser", user);
-
     }
 
     public User getUserObjByUserId(String userId) {

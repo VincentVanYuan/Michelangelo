@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -75,8 +72,8 @@ public class UserController {
      * @since 2016-6-25
      */
     @ResponseBody
-    @RequestMapping(value = "getUser", method = RequestMethod.GET)
-    public Map<String, Object> getUser(@RequestParam(value = "userId") String userId) {
+    @RequestMapping(value = "/getUser/{userId}", method = RequestMethod.GET)
+    public Map<String, Object> getUser(@PathVariable(value = "userId") String userId) {
         Map<String, Object> map = new HashMap<String, Object>();
         try {
             User user = userService.getUserObjByUserId(userId);
