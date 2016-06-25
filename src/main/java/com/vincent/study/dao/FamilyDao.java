@@ -13,8 +13,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class FamilyDao extends BaseDao {
 
-    public void saveFamily(Family family) {
+    public Long saveFamily(Family family) {
         sqlSession.insert("familyMapper.saveFamily", family);
+        return family.getFamilyId();
     }
 
 }

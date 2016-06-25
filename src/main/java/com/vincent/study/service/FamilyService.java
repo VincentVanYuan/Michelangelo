@@ -22,7 +22,7 @@ public class FamilyService {
     @Autowired
     private FamilyDao familyDao;
 
-    public void saveFamily(Family family) {
-        familyDao.saveFamily(family);
+    public Long saveFamily(Family family) {
+        return familyDao.saveFamily(family);
     }
 }

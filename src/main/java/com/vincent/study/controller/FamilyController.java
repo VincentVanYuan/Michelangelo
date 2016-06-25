@@ -57,7 +57,8 @@ public class FamilyController {
             family.setFamilyBirth(familyBirth);
             family.setFamilyCall(familyCall);
             family.setFamilyName(familyName);
-            familyService.saveFamily(family);
+            Long familyId = familyService.saveFamily(family);
+            family.setFamilyId(familyId);
             model.addAttribute(family);
             logger.info("save success!");
         } catch (Exception e) {
