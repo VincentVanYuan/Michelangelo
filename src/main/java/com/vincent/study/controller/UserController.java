@@ -6,8 +6,10 @@ import com.vincent.study.utils.GenerateId;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 
@@ -19,6 +21,7 @@ import java.util.Date;
  * @since 2016-6-1
  */
 @Controller
+@RequestMapping("/user")
 public class UserController {
 
     private static final Logger logger = LogManager.getLogger(UserController.class);
@@ -27,18 +30,22 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("/saveUser")
-    public String saveUser() {
+    public String saveUser(@RequestParam(value = "userName") String userName,
+                           @RequestParam(value = "userAge", required = false) Integer userAge,
+                           @RequestParam(value = "userBirth", required = false) @DateTimeFormat(pattern = "yy-MM-dd") Date userBirth,
+                           @RequestParam(value = "userAvatar", required = false) String userAvatar) {
+
         try {
             User user = new User();
             user.setUserId(GenerateId.currentTimeMillis());
-            user.setUserName("Vincent");
-            user.setUserAge(23);
-            user.setUserBirth(new Date());
-            user.setUserAvatar("///////////////////////");
+            user.setUserName(userName);
+            user.setUserAge(userAge);
+            user.setUserBirth(userBirth);
+            user.setUserAvatar(userAvatar);
             userService.saveUser(user);
-            logger.info("save success");
+            logger.info("save success!");
         } catch (Exception e) {
-            logger.error(e);
+            logger.error(e.getMessage(), e);
         }
         return "index";
     }

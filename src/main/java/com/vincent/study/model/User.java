@@ -13,7 +13,7 @@ public class User {
 
     private String userId;
     private String userName;
-    private int userAge;
+    private Integer userAge;
     private Date userBirth;
     private String userAvatar;
 
@@ -33,11 +33,11 @@ public class User {
         this.userName = userName;
     }
 
-    public int getUserAge() {
+    public Integer getUserAge() {
         return userAge;
     }
 
-    public void setUserAge(int userAge) {
+    public void setUserAge(Integer userAge) {
         this.userAge = userAge;
     }
 
