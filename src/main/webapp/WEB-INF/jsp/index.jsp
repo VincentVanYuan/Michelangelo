@@ -7,7 +7,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Vincent</title>
+    <title>Michelangelo</title>
     <link rel="shortcut icon" type="image/x-icon" href="../source/icon/vincent.ico" media="screen"/>
 </head>
 <body>
