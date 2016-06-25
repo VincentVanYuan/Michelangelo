@@ -12,8 +12,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 用户 Controller
@@ -62,5 +65,28 @@ public class UserController {
             logger.error(e.getMessage(), e);
         }
         return "index";
+    }
+
+    /**
+     * 根据userId获取用户
+     *
+     * @param userId 用户ID
+     * @return map
+     * @since 2016-6-25
+     */
+    @ResponseBody
+    @RequestMapping(value = "getUser", method = RequestMethod.GET)
+    public Map<String, Object> getUser(@RequestParam(value = "userId") String userId) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        try {
+            User user = userService.getUserObjByUserId(userId);
+            map.put("user", user);
+            map.put("isSuccess", 1);
+            return map;
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+        }
+        map.put("isSuccess", 0);
+        return map;
     }
 }

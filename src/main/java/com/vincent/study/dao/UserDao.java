@@ -3,6 +3,9 @@ package com.vincent.study.dao;
 import com.vincent.study.model.User;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 用户 Dao
  *
@@ -17,5 +20,11 @@ public class UserDao extends BaseDao {
 
         sqlSession.insert("userMapper.saveUser", user);
 
+    }
+
+    public User getUserObjByUserId(String userId) {
+        Map<String, Object> parameter = new HashMap<String, Object>();
+        parameter.put("userId", userId);
+        return sqlSession.selectOne("userMapper.getUserObjByUserId", parameter);
     }
 }

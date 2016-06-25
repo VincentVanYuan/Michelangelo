@@ -26,4 +26,7 @@ public class UserService {
         userDao.saveUser(user);
     }
 
+    public User getUserObjByUserId(String userId) {
+        return userDao.getUserObjByUserId(userId);
+    }
 }

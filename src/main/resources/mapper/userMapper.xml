@@ -7,4 +7,9 @@
         INSERT INTO User (userId, userName, userAge, userBirth, userAvatar)
         VALUES (#{userId}, #{userName}, #{userAge}, #{userBirth}, #{userAvatar})
     </insert>
+    <select id="getUserObjByUserId" parameterType="java.util.Map" resultType="com.vincent.study.model.User">
+        SELECT *
+        FROM User
+        WHERE userId = ${userId}
+    </select>
 </mapper>
