@@ -31,6 +31,16 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 添加用户
+     *
+     * @param userName   用户名
+     * @param userAge    年龄
+     * @param userBirth  出生日期
+     * @param userAvatar 头像
+     * @return user model
+     * @since 2016-6-1
+     */
     @RequestMapping(value = "saveUser", method = RequestMethod.GET)
     public String saveUser(@RequestParam(value = "userName") String userName,
                            @RequestParam(value = "userAge", required = false) Integer userAge,
