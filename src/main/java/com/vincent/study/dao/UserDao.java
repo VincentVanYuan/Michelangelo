@@ -21,7 +21,7 @@ public class UserDao extends BaseDao {
     }
 
     public User getUserObjByUserId(String userId) {
-        Map<String, Object> parameter = new HashMap<String, Object>();
+        Map<String, Object> parameter = new HashMap<>();
         parameter.put("userId", userId);
         return sqlSession.selectOne("userMapper.getUserObjByUserId", parameter);
     }
