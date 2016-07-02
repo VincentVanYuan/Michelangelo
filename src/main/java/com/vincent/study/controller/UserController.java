@@ -75,7 +75,7 @@ public class UserController {
     @ResponseBody
     @RequestMapping(value = "/getUser/{userId}", method = RequestMethod.GET)
     public Map<String, Object> getUser(@PathVariable(value = "userId") String userId) {
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<String, Object>();
         try {
             User user = userService.getUserObjByUserId(userId);
             if (!ObjectUtils.isEmpty(user)) {

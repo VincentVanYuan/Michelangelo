@@ -21,7 +21,7 @@ public class TestMapInMain {
 
     public static void main(String[] args) {
 
-        Map<String, String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<String, String>();
 
         map.put("a", "1");
         map.put("b", "2");
