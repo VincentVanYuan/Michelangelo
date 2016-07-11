@@ -17,17 +17,17 @@
 
     <mvc:annotation-driven/>
 
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-          id="internalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/jsp/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean>
-
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/user/**"/>
             <bean class="com.vincent.study.interceptor.TestInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          id="internalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
 
 </beans>
